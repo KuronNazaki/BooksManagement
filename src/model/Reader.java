@@ -7,8 +7,14 @@ public class Reader {
     private String address;
     private String phoneNumber;
 
-    public Reader () {
+    public Reader () {}
 
+    public Reader (String fullName,
+                   String address, String phoneNumber) {
+        this.readerID = id++;
+        this.fullName = fullName;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
     }
 
     public Reader (long readerID) {

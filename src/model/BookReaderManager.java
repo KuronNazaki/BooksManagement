@@ -7,9 +7,7 @@ public class BookReaderManager {
     private String state;
     private int totalBorrowed;
 
-    public BookReaderManager () {
-
-    }
+    public BookReaderManager () {}
 
     public BookReaderManager (Book book, Reader reader, int numOfBorrow,
                               String state, int totalBorrowed) {

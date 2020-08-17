@@ -78,28 +78,28 @@ public class DataController {
 
     public void writeBookToFile (Book book, String fileName) {
         openFileToWrite(fileName);
-        printWriter.println(book.getBookID() + "|" + book.getBookName() + "|" +
-                book.getAuthor() + "|" + book.getGenre() + "|" +
-                book.getPublishedYear() + "|" + book.getQuantity());
+        printWriter.println(book.getBookID() + " | " + book.getBookName() + " | " +
+                book.getAuthor() + " | " + book.getGenre() + " | " +
+                book.getPublishedYear() + " | " + book.getQuantity());
         closeFileAfterWrite();
     }
 
     public void writeReaderToFile (Reader reader, String fileName) {
         openFileToWrite(fileName);
-        printWriter.println(reader.getReaderID() + "|" + reader.getFullName() + "|" +
-                reader.getAddress() + "|" + reader.getPhoneNumber());
+        printWriter.println(reader.getReaderID() + " | " + reader.getFullName() + " | " +
+                reader.getAddress() + " | " + reader.getPhoneNumber());
         closeFileAfterWrite();
     }
 
     public void writeBookReaderManagerToFile (BookReaderManager brm, String fileName) {
         openFileToWrite(fileName);
-        printWriter.println(brm.getBook().getBookID() + "|" + brm.getReader().getReaderID()
-                + "|" + brm.getNumOfBorrow() + "|" + brm.getState());
+        printWriter.println(brm.getBook().getBookID() + " | " + brm.getReader().getReaderID()
+                + " | " + brm.getNumOfBorrow() + " | " + brm.getState());
         closeFileAfterWrite();
     }
 
     public Book createBookFromData (String data) throws ParseException {
-        String[] dataSet = data.split("\\|");
+        String[] dataSet = data.split(" \\| ");
         //int bookID|String bookName|String author|
         // Book.Genre genre|int publishedYear|int quantity
         return new Book(Integer.parseInt(dataSet[0]), dataSet[1], dataSet[2],
@@ -108,13 +108,13 @@ public class DataController {
     }
 
     public Reader createReaderFromData (String data) {
-        String[] dataSet = data.split("\\|");
+        String[] dataSet = data.split(" \\| ");
         // readerID|fullName|address|phoneNumber
         return new Reader(Long.parseLong(dataSet[0]), dataSet[1], dataSet[2], dataSet[3]);
     }
 
     public BookReaderManager createBookReaderManagerFromFile (String data) {
-        String[] dataSet = data.split("\\|");
+        String[] dataSet = data.split(" \\| ");
         //brm.getBook().getBookID()|brm.getReader().getReaderID()|brm.getNumOfBorrow()|brm.getState()
         return new BookReaderManager(new Book(Integer.parseInt(dataSet[0])),
                 new Reader(Long.parseLong(dataSet[1])), Integer.parseInt(dataSet[2]),

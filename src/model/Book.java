@@ -1,8 +1,6 @@
 package model;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class Book {
     public enum Genre {
@@ -33,9 +31,7 @@ public class Book {
     private int publishedYear;
     private int quantity;
 
-    public Book () {
-
-    }
+    public Book () {}
 
     public Book (int bookID) {
         this.bookID = bookID;
@@ -49,12 +45,6 @@ public class Book {
         this.genre = genre;
         this.quantity = quantity;
         this.publishedYear = publishedYear;
-//        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy");
-//        try {
-//            this.publishedYear = dateFormat.parse(Integer.toString(publishedYear));
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//        }
     }
 
     public Book (int bookID, String bookName, String author, Genre genre,
@@ -65,12 +55,10 @@ public class Book {
         this.genre = genre;
         this.quantity = quantity;
         this.publishedYear = publishedYear;
-//        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy");
-//        try {
-//            this.publishedYear = dateFormat.parse(Integer.toString(publishedYear));
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//        }
+    }
+
+    public static void setId (int newId) {
+        id = newId;
     }
 
     public int getBookID () {
@@ -106,15 +94,10 @@ public class Book {
     }
 
     public int getPublishedYear() {
-//        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy");
-//        dateFormat.format(publishedYear);
-//        return Integer.parseInt(publishedYear.toString());
         return publishedYear;
     }
 
-    public void setPublishedYear (int publishedYear) throws ParseException {
-//        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy");
-//        this.publishedYear = dateFormat.parse(Integer.toString(publishedYear));
+    public void setPublishedYear (int publishedYear) {
         this.publishedYear = publishedYear;
     }
 
@@ -124,5 +107,12 @@ public class Book {
 
     public void setQuantity (int quantity) {
         this.quantity = quantity;
+    }
+
+    @Override
+    public String toString() {
+        return "Book [ " + this.bookID + " | '" + this.bookName + "' | '" +
+                this.author + "' | " + this.publishedYear + " | Genre:" +
+                this.genre + " | Qty:" + this.quantity + " ]";
     }
 }
