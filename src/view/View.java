@@ -48,6 +48,7 @@ public class View {
                 System.out.println("Thank you for using our program.");
 
                 break;
+
             case 1:
                 try {
                     if (!isBookFileChecked) {
@@ -87,11 +88,17 @@ public class View {
                 }
 
                 break;
+
             case 2:
                 System.out.println("These are all the books stored in " + fileName + " : ");
                 for (Book b : controller.readBooksFromFile(fileName)) {
                     System.out.println(b.toString());
                 }
+
+                break;
+
+            default:
+                System.out.println("We've not added this feature yet!!!");
 
                 break;
         }
